@@ -69,14 +69,14 @@ namespace AnnouncerBot
                 // User Joined
                 if (e.After.VoiceChannel != null && e.Before.VoiceChannel == null)
                 {
-                    Console.WriteLine(e.After.Name.ToString() + " has joined the channel.");
+                    Console.WriteLine(e.After.Name + " has joined the channel.");
                     joined = true;
                     voiceChan = e.After.VoiceChannel;
                 }
                 // User Left
                 else if (e.Before.VoiceChannel != null && e.After.VoiceChannel == null)
                 {
-                    Console.WriteLine(e.After.Name.ToString() + " has left the channel.");
+                    Console.WriteLine(e.After.Name + " has left the channel.");
                     joined = false;
                     voiceChan = e.Before.VoiceChannel;
                 }
@@ -93,15 +93,7 @@ namespace AnnouncerBot
                 reader.SetOutputToAudioStream(stream, synthFormat);
 
                 // Use their nickname if they have one
-                var name = "";
-                if (e.After.Nickname != null)
-                {
-                    name = e.After.Nickname;
-                }
-                else
-                {
-                    name = e.After.Name;
-                }
+                var name = e.After.Nickname ?? e.After.Nickname;
 
                 // Joined or Left?
                 if (joined)

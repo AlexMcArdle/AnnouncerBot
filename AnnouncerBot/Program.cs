@@ -11,9 +11,6 @@ namespace AnnouncerBot
 {
     class Program
     {
-        // This is the "audio client" we'll use it later.
-        public static IAudioClient _vClient;
-
         // Your bots Token.  Change this and the Server/Channel IDs in order to connect.
         private static string botToken = "YOUR BOT KEY HERE";
 
@@ -23,6 +20,8 @@ namespace AnnouncerBot
 
         // The discord client.
         public static DiscordClient _client;
+        // Audio Client
+        public static IAudioClient _vClient;
 
         // Text to Speech
         private static SpeechSynthesizer reader;
